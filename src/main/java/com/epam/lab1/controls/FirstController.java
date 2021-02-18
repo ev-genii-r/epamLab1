@@ -4,12 +4,10 @@ package com.epam.lab1.controls;
 import com.sun.el.lang.FunctionMapperImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.epam.lab1.parametres.entityParametres;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import validator.Validator;
 
 @Controller
 public class FirstController {
@@ -19,13 +17,25 @@ public class FirstController {
         entityParametres parametres=new entityParametres();
         model.addAttribute("speed");
         model.addAttribute("length");
-        model.addAttribute("time",parametres.getSpeed());
+        model.addAttribute("time","input length and speed to get time");
         return "home";
     }
     @PostMapping("/home")
-    public String mainProcessing(@RequestParam int speed,@RequestParam int length, Model model){
-        entityParametres parametres=new entityParametres(speed,length);
-        model.addAttribute("time",parametres.getSpeed());
+    public String mainProcessing(@RequestParam String inputSpeed,@RequestParam String inputLength, Model model) throws Exception{
+        Validator validator=new Validator();
+        if(validator.dataValidation(inputSpeed,inputLength)) {
+            double speed=Double.parseDouble(inputSpeed);
+            double length=Double.parseDouble(inputLength);
+            validator.nullNegativeValidation(speed,length);
+            entityParametres parametres = new entityParametres(speed, length);
+            if (validator.getException() == "no exception") {
+                model.addAttribute("time", "время=" + parametres.getSpeed() + " часов");
+            } else {
+                model.addAttribute("time", validator.getException());
+            }
+        }else{
+            model.addAttribute("time","Please input correct data");
+        }
         return "home";
     }
 }

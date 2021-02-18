@@ -3,14 +3,15 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="home.css" rel="stylesheet">
 </head>
 <body>
     <form action="/home" method="post">
-        <div style="width: 100px; height: 250px; border:1px solid; margin:auto;">
-            <p>расстояние</p>
-            <input type="text" name="length" style="width: 50px"/>
-            <p>скорость</p>
-            <input type="text" name="speed" style="width: 50px"/>
+        <div class="MainBorder" style="width: 200px; height: 180px; border:2px solid; margin:auto;">
+            <div>расстояние</div>
+           <input type="text" name="inputLength" style="width: 50px" />
+            <div>скорость</div>
+            <input type="text" name="inputSpeed" style="width: 50px"/><br><br>
             <button type="submit">вычислить</button>
             <p th:text="${time}"/>
         </div>

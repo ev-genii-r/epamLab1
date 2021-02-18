@@ -1,13 +1,15 @@
 package com.epam.lab1.parametres;
 
+import validator.Validator;
+
 public class entityParametres {
-    int speed=1;
-    int length=1;
-    int time;
+    double speed=1;
+    double length=1;
+    double time=0;
     public entityParametres(){
 
     }
-   public entityParametres(int speed,int length){
+   public entityParametres(double speed,double length){
     this.speed=speed;
     this.length=length;
     }
@@ -17,8 +19,8 @@ public class entityParametres {
     public void setLength(int length){
         this.length=length;
     }
-    public int  getSpeed(){
-       time=length/speed;
+    public double  getSpeed(){
+        time=length/speed;
         return time;
     }
 
