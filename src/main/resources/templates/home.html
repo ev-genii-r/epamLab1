@@ -3,11 +3,16 @@
 <head>
     <title>Title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link href="home.css" rel="stylesheet">
 </head>
 <body>
+    <form action="/goHome" method="post" >
+        <div>
+        <button type="submit" >Вернуться на главную страницу</button>
+        </div>
+        <br>
+    </form>
     <form action="/home" method="post">
-        <div class="MainBorder" style="width: 200px; height: 180px; border:2px solid; margin:auto;">
+        <div style="width: 200px; height: 180px; border:2px solid;">
             <div>расстояние</div>
            <input type="text" name="inputLength" style="width: 50px" />
             <div>скорость</div>
