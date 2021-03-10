@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form action="/showDatabase" method="post" >
+        <div>
+            <button type="submit">Показать историю</button>
+            <p th:utext="${database}"/>
+        </div>
+    </form>
+    <form action="/backDatabase" method="post" >
+        <div>
+            <button type="submit">Вернуться на главную страницу</button>
+        </div>
+    </form>
+
+</body>
+</html>
