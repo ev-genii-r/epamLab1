@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.FileReader;
-
 @Controller
 public class DatabaseController {
     @GetMapping("/database")

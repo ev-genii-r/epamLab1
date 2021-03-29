@@ -6,18 +6,34 @@ public class entityParametres {
     double speed=1;
     double length=1;
     double time=0;
-    public entityParametres(){
-
+    String exceptionLength="";
+    String exceptionSpeed="";
+    String exceptionTime="";
+    public entityParametres(String exceptionLength,String exceptionSpeed,String exceptionTime){
+        this.exceptionLength=exceptionLength;
+        this.exceptionSpeed=exceptionSpeed;
+        this.exceptionTime=exceptionTime;
     }
    public entityParametres(double speed,double length){
-    this.speed=speed;
-    this.length=length;
-    }
-    public void setSpeed(int speed){
         this.speed=speed;
-    }
-    public void setLength(int length){
         this.length=length;
+    }
+    public entityParametres(){
+    }
+    public double getInputSpeed(){
+        return speed;
+    }
+    public double getInputLength(){
+        return length;
+    }
+    public String getExceptionTime(){
+        return exceptionTime;
+    }
+    public String getExceptionSpeed(){
+        return exceptionSpeed;
+    }
+    public String getExceptionLength(){
+        return exceptionLength;
     }
     public double  getSpeed(){
         time=length/speed;
