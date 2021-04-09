@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form action="/goHome" method="post" >
+    <div>
+        <button type="submit" >Вернуться на главную страницу</button>
+    </div>
+    <br>
+</form>
+<form action="/funcHome" method="post">
+    <div style="width: 200px; height: 180px; border:2px solid;">
+        <div>расстояние</div>
+        <input type="text" name="inputLength" style="width: 50px" />
+        <div>скорость</div>
+        <input type="text" name="inputSpeed" style="width: 50px"/><br><br>
+        <button type="submit">вычислить</button>
+        <p th:text="${time}"/>
+    </div>
+</form>
+</body>
+</html>

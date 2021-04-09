@@ -17,4 +17,8 @@ public class MainController {
     public String database(Model model){
         return "database";
     }
+    @PostMapping("/FuncHome")
+    public  String functionatController(Model model){
+        return "functionalHome";
+    }
 }
