@@ -1,4 +1,5 @@
 package com.epam.lab1.controls;
+import com.epam.lab1.parametres.entityParametres;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,21 +21,23 @@ public class FunctionalHomeController {
         try{
             Validator validator=new Validator();
             validator.dataValidation(inputSpeed,inputLength);
-            Transformation<String> transformString =str -> Double.parseDouble(str);
-            validator.nullNegativeValidation(transformString.resultTransformation(inputSpeed),transformString.resultTransformation(inputLength));
-            Calculation<Double> finalCalculations = (trans1,trans2) -> trans1/trans2;
-            model.addAttribute("time",finalCalculations.resultCalculation(transformString.resultTransformation(inputLength),transformString.resultTransformation(inputSpeed)));
+            Parce parametres=(String str)->Double.parseDouble(str);
+            model.addAttribute("time",parametres.getRes(inputLength,inputSpeed));
+//            entityParametres.Transformation<String> transformString=str -> Double.parseDouble(str);
+//            validator.nullNegativeValidation(transformString.resultTransformation(inputSpeed),transformString.resultTransformation(inputLength));
+//            entityParametres.Calculation<Double> finalCalculations = (trans1,trans2) -> trans1/trans2;
+//            model.addAttribute("time",finalCalculations.resultCalculation(transformString.resultTransformation(inputLength),transformString.resultTransformation(inputSpeed)));
         }catch (dataInputException ex){
             model.addAttribute("time", ex.getMessage());
             log.error(ex.getMessage());
         }
         return "functionalHome";
     }
-    interface Transformation<T>{
-        double resultTransformation(T t);
-    }
-    interface Calculation<T>{
-        double resultCalculation(T s, T l);
+    interface Parce{
+        default double getRes(String length, String speed){
+            return parce(length)/parce(speed);
+        }
+        double parce(String str);
     }
 }
 

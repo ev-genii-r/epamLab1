@@ -39,5 +39,11 @@ public class entityParametres {
         time=length/speed;
         return time;
     }
+//   public interface Calculation<T>{
+//        double resultCalculation(T s, T l);
+//    }
+//   public interface Transformation<T>{
+//        double resultTransformation(T t);
+//    }
 
 }
