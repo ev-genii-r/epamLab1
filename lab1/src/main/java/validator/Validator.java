@@ -6,7 +6,7 @@ public class Validator {
     public Validator(){}
     public void nullNegativeValidation(double speed, double length) throws dataInputException{
         if(speed==0 || length==0) {
-            throw new dataInputException("Null speed or length");
+                throw new dataInputException("Null speed or length");
         }
         if(speed<0||length<0) {
             throw new dataInputException("Speed and length must be positive");

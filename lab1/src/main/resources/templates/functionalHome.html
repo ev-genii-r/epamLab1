@@ -20,6 +20,11 @@
         <button type="submit">вычислить</button>
         <p th:text="${time}"/>
     </div>
+    <div th:each="el : ${posts}">
+        <h1 th:text="${el.length}"/>
+        <h1 th:text="${el.speed}"/>
+        <h1 th:text="${el.time}"/>
+    </div>
 </form>
 </body>
 </html>
